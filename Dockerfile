@@ -15,6 +15,8 @@ COPY ./files/index.html /opt/html
 #RUN setcap 'cap_net_bind_service=+ep' /opt/caddy/caddy
 
 EXPOSE 80 443
+WORKDIR /opt/html
+
 ENTRYPOINT ["/opt/caddy/caddy"]
 CMD ["-agree=true","-email=ssl@txtsme.com", "-conf=/opt/caddy/Caddyfile", "-quiet=true", "-log=/var/log/caddy/server.log" ]
 
